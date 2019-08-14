@@ -1,0 +1,12 @@
+[submodule "codeinthedark_server"]
+	path = codeinthedark_server
+	url = git@github.com:interlogicaDevelopers/codeinthedark_server.git
+[submodule "editor"]
+	path = editor
+	url = git@github.com:interlogicaDevelopers/editor.git
+[submodule "codeinthedark_viewer"]
+	path = codeinthedark_viewer
+	url = git@github.com:interlogicaDevelopers/codeinthedark_viewer.git
+[submodule "codeinthedark_rating"]
+	path = codeinthedark_rating
+	url = git@github.com:interlogicaDevelopers/codeinthedark_rating.git

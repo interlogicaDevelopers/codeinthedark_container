@@ -1,0 +1,76 @@
+version: '3'
+services:
+
+  citd_api:
+    build:
+      context: ./codeinthedark_server
+      dockerfile: dev.Dockerfile
+    restart: always
+    user: "${UID}:${GID}"
+    ports:
+      - "3000:3000"
+    networks:
+      - citd
+    volumes:
+      - ./codeinthedark_server/src:/usr/src/app/src
+    depends_on:
+      - citd_mongo
+
+  citd_rating:
+    build:
+      context: ./codeinthedark_rating
+      dockerfile: dev.Dockerfile
+    restart: always
+    user: "${UID}:${GID}"
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    networks:
+      - citd
+    volumes:
+      - ./codeinthedark_rating/src:/usr/local/citd-rating/src
+
+  citd_viewer:
+    build:
+      context: ./codeinthedark_viewer
+      dockerfile: dev.Dockerfile
+    restart: always
+    user: "${UID}:${GID}"
+    networks:
+      - citd
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./codeinthedark_viewer/src:/usr/src/app/src
+
+  citd_editor:
+    build:
+      context: ./editor
+      dockerfile: dev.Dockerfile
+    restart: always
+    user: "${UID}:${GID}"
+    ports:
+      - "9000:9000"
+    networks:
+      - citd
+    volumes:
+      - ./editor/app:/usr/src/app/app
+
+  citd_mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    networks:
+      - citd
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/etc/mongo
+
+volumes:
+  mongo_data:
+
+networks:
+  citd:
