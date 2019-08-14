@@ -13,5 +13,4 @@ It will start all the docker containers according to the following schema:
 - Viewer (codeinthedark_viewer) on port 4200
 - Rating (codeinthedark_rating) on port 8000 / 8001
 
-## Production Build
 
