@@ -1,12 +1,16 @@
 [submodule "codeinthedark_server"]
 	path = codeinthedark_server
 	url = https://github.com/interlogicaDevelopers/codeinthedark_server.git
+	branch = master
 [submodule "editor"]
 	path = editor
 	url = https://github.com/interlogicaDevelopers/editor.git
+	branch = master
 [submodule "codeinthedark_viewer"]
 	path = codeinthedark_viewer
 	url = https://github.com/interlogicaDevelopers/codeinthedark_viewer.git
+	branch = master
 [submodule "codeinthedark_rating"]
 	path = codeinthedark_rating
 	url = https://github.com/interlogicaDevelopers/codeinthedark_rating.git
+	branch = master
