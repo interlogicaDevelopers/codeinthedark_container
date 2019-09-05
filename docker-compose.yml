@@ -69,6 +69,36 @@ services:
     volumes:
       - mongo_data:/etc/mongo
 
+  citd_vhost:
+    image: jc21/nginx-proxy-manager:latest
+      restart: always
+      ports:
+        # Public HTTP Port:
+        - 80:80
+        # Public HTTPS Port:
+        - 443:443
+        # Admin Web Port:
+        - 81:81
+      volumes:
+        # Make sure this config.json file exists as per instructions above:
+        - ./config.json:/app/config/production.json
+        - ./data:/data
+        - ./letsencrypt:/etc/letsencrypt
+      depends_on:
+        - citd_vhostdb
+
+  citd_vhostdb:
+    image: mariadb
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: "npm"
+        MYSQL_DATABASE: "npm"
+        MYSQL_USER: "npm"
+        MYSQL_PASSWORD: "npm"
+      volumes:
+        - ./data/mysql:/var/lib/mysql
+
+
 volumes:
   mongo_data:
 
