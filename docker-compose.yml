@@ -72,6 +72,8 @@ services:
   citd_vhost:
     image: jc21/nginx-proxy-manager:latest
     restart: always
+    networks:
+      - citd
     ports:
       # Public HTTP Port:
       - 80:80
@@ -90,6 +92,8 @@ services:
   citd_vhostdb:
     image: mariadb
     restart: always
+    networks:
+      - citd
     environment:
       MYSQL_ROOT_PASSWORD: ${VHOSTDB_ROOT_PASSWORD}
       MYSQL_DATABASE: "npm"
