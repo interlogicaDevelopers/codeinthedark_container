@@ -1,0 +1,10 @@
+{
+  "database": {
+    "engine": "mysql",
+    "host": "citd_vhostdb",
+    "name": "",
+    "user": "",
+    "password": "",
+    "port": 3306
+  }
+}
