@@ -67,7 +67,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./mongo_data:/etc/mongo
+      - ./mongo_data:/data/db
 
   citd_vhost:
     image: jc21/nginx-proxy-manager:latest
