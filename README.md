@@ -1,10 +1,8 @@
 # Code in the dark - Venice
 
-## Devlopment mode
 
-To run the dev env 
 ```
-npm run dev
+./run.sh
 ```
 It will start all the docker containers according to the following schema:
 
